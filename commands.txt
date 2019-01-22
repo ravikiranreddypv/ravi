@@ -1,0 +1,13 @@
+cd /downloads/chef-repo/cookbooks
+knife cookbook create kiranbook
+knife cookbook upload kiranbook
+cp ../../bo14/recipes/*.(copies all receipies )
+knife node run_list add testnode "recipe[cookbookname]" or 
+"recipe[cookbookname::webserver]"
+knife node run_list remove testnode "recipe[cookbookname]"
+knife node show
+knife node run_list show
+knife bootstrap hostaname -x root -p passwd -N nodename
+chef-apply
+chef-client
+
